@@ -1,4 +1,4 @@
-package com.example.e_RH.Role.enums;
+package com.example.e_RH.role.enums;
 
 public enum RoleTypeEnum {
     ADMIN,

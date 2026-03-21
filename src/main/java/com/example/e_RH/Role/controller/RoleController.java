@@ -1,4 +1,4 @@
-package com.example.e_RH.Role.controller;
+package com.example.e_RH.role.controller;
 
 public class RoleController {
 
