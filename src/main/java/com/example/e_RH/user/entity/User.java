@@ -1,4 +1,4 @@
-package com.example.e_RH.users.entity;
+package com.example.e_RH.user.entity;
 
 import com.example.e_RH.departement.entity.Departement;
 import com.example.e_RH.role.entity.Role;

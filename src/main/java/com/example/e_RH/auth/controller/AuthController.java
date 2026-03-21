@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.e_RH.auth.dto.AuthResponse;
 import com.example.e_RH.auth.dto.LoginRequest;
 import com.example.e_RH.auth.service.AuthService;
-import com.example.e_RH.users.entity.User;
+import com.example.e_RH.user.entity.User;
 
 import lombok.RequiredArgsConstructor;
 

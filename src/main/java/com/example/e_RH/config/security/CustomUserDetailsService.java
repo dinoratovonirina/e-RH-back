@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.example.e_RH.users.entity.User;
-import com.example.e_RH.users.repository.UserRepository;
+import com.example.e_RH.user.entity.User;
+import com.example.e_RH.user.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

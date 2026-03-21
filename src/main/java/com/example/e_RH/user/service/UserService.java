@@ -1,4 +1,4 @@
-package com.example.e_RH.users.service;
+package com.example.e_RH.user.service;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import com.example.e_RH.departement.entity.Departement;
 import com.example.e_RH.departement.service.DepartementService;
 import com.example.e_RH.role.entity.Role;
 import com.example.e_RH.role.service.RoleService;
-import com.example.e_RH.users.entity.User;
-import com.example.e_RH.users.repository.UserRepository;
+import com.example.e_RH.user.entity.User;
+import com.example.e_RH.user.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

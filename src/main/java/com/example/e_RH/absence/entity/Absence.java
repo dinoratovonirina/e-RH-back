@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import com.example.e_RH.absence.enums.MissingStatusEnum;
 import com.example.e_RH.absence.enums.MissingTypeEnum;
-import com.example.e_RH.users.entity.User;
+import com.example.e_RH.user.entity.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -1,4 +1,4 @@
-package com.example.e_RH.users.controller;
+package com.example.e_RH.user.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.e_RH.users.entity.User;
-import com.example.e_RH.users.service.UserService;
+import com.example.e_RH.user.entity.User;
+import com.example.e_RH.user.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
