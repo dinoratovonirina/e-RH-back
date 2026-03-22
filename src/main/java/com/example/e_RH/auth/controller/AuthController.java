@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.e_RH.auth.dto.AuthResponse;
 import com.example.e_RH.auth.dto.LoginRequest;
+import com.example.e_RH.auth.dto.RegisterRequest;
 import com.example.e_RH.auth.service.AuthService;
+import com.example.e_RH.auth.service.RegistrationService;
 import com.example.e_RH.user.entity.User;
 
 import lombok.RequiredArgsConstructor;
@@ -20,10 +22,11 @@ import lombok.RequiredArgsConstructor;
 public class AuthController {
 
     private final AuthService service;
+    private final RegistrationService registrationService;
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.register(request));
+    public ResponseEntity<User> register(@RequestBody RegisterRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(registrationService.register(request));
     }
 
     @PostMapping("/login")

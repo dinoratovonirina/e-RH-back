@@ -1,5 +1,7 @@
 package com.example.e_RH.role.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.example.e_RH.role.entity.Role;
@@ -12,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class RoleService {
     private final RoleRepository roleRepository;
 
-    public Role getRoleById(Long roleId) {
+    public Optional<Role> getRoleById(Long roleId) {
         return this.roleRepository.findRoleById(roleId);
     }
 }

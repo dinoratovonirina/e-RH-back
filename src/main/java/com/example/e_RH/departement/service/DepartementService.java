@@ -1,5 +1,7 @@
 package com.example.e_RH.departement.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.example.e_RH.departement.entity.Departement;
@@ -12,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class DepartementService {
     private final DepartementRepository departementRepository;
 
-    public Departement getDepartementById(Long departementId) {
-        return this.departementRepository.getDepartementById(departementId);
+    public Optional<Departement> getDepartementById(Long departementId) {
+        return departementRepository.findDepartementById(departementId);
     }
 }
