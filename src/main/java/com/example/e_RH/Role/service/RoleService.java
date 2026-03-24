@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.e_RH.role.entity.Role;
+import com.example.e_RH.role.enums.RoleTypeEnum;
 import com.example.e_RH.role.repository.RoleRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,11 @@ import lombok.RequiredArgsConstructor;
 public class RoleService {
     private final RoleRepository roleRepository;
 
+    public Optional<Role> getRoleByName(RoleTypeEnum roleName) {
+        return this.roleRepository.findByRoleName(roleName);
+    }
+ 
     public Optional<Role> getRoleById(Long roleId) {
-        return this.roleRepository.findRoleById(roleId);
+        return this.roleRepository.findById(roleId);
     }
 }

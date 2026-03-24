@@ -23,9 +23,9 @@ public class AuthService {
         public AuthResponse login(LoginRequest request) {
                 authenticationManager.authenticate(
                                 new UsernamePasswordAuthenticationToken(
-                                                request.getEmail(), request.getPassword()));
+                                                request.email(), request.password()));
 
-                User user = userRepository.findByEmail(request.getEmail())
+                User user = userRepository.findByEmail(request.email())
                                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
 
                 String token = jwtUtils.generateToken(user.getEmail());

@@ -2,6 +2,7 @@ package com.example.e_RH.user.entity;
 
 import com.example.e_RH.departement.entity.Departement;
 import com.example.e_RH.role.entity.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -17,7 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name ="users")
+@Table(name = "users")
 @Data
 @Builder
 @NoArgsConstructor
@@ -37,9 +39,13 @@ public class User {
     @JsonProperty("isActive")
     private Boolean isActive;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(optional = true)
+    @JoinColumn(nullable = true)
     private Role role;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(optional = true)
+    @JoinColumn(nullable = true)
     private Departement departement;
 }

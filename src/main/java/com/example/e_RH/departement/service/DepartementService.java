@@ -15,6 +15,6 @@ public class DepartementService {
     private final DepartementRepository departementRepository;
 
     public Optional<Departement> getDepartementById(Long departementId) {
-        return departementRepository.findDepartementById(departementId);
+        return departementRepository.findById(departementId);
     }
 }
