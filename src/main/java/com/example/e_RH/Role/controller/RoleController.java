@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.e_RH.role.entity.Role;
-import com.example.e_RH.role.repository.RoleRepository;
+import com.example.e_RH.role.service.RoleService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,10 +17,10 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("role")
 @RequiredArgsConstructor
 public class RoleController {
-    private final RoleRepository roleRepository;
+    private final RoleService roleService;
 
     @GetMapping("list")
     public ResponseEntity<List<Role>> getAllRole() {
-        return ResponseEntity.status(HttpStatus.OK).body(roleRepository.findAll());
+        return ResponseEntity.status(HttpStatus.OK).body(roleService.getAllRole());
     }
 }

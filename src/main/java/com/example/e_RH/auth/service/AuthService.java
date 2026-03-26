@@ -8,7 +8,7 @@ import com.example.e_RH.auth.dto.AuthResponse;
 import com.example.e_RH.auth.dto.LoginRequest;
 import com.example.e_RH.config.security.JwtUtils;
 import com.example.e_RH.user.entity.User;
-import com.example.e_RH.user.repository.UserRepository;
+import com.example.e_RH.user.service.UserService;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-        private final UserRepository userRepository;
+        private final UserService userService;
         private final JwtUtils jwtUtils;
         private final AuthenticationManager authenticationManager;
 
@@ -25,7 +25,7 @@ public class AuthService {
                                 new UsernamePasswordAuthenticationToken(
                                                 request.email(), request.password()));
 
-                User user = userRepository.findByEmail(request.email())
+                User user = userService.getUserByEmail(request.email())
                                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
 
                 String token = jwtUtils.generateToken(user.getEmail());

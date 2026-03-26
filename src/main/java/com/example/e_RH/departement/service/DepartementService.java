@@ -1,5 +1,6 @@
 package com.example.e_RH.departement.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -16,5 +17,9 @@ public class DepartementService {
 
     public Optional<Departement> getDepartementById(Long departementId) {
         return departementRepository.findById(departementId);
+    }
+    
+    public List<Departement> getAllDepartement() {
+        return departementRepository.findAll();
     }
 }

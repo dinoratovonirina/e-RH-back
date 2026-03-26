@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.e_RH.departement.entity.Departement;
-import com.example.e_RH.departement.repository.DepartementRepository;
+import com.example.e_RH.departement.service.DepartementService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,10 +17,10 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("department")
 @RequiredArgsConstructor
 public class DepartementController {
-    private final DepartementRepository departementRepository;
+    private final DepartementService departementService;
 
     @GetMapping("list")
     public ResponseEntity<List<Departement>> getAllDepartements() {
-        return ResponseEntity.status(HttpStatus.OK).body(departementRepository.findAll());
+        return ResponseEntity.status(HttpStatus.OK).body(departementService.getAllDepartement());
     }
 }
