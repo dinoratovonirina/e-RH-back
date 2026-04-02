@@ -1,6 +1,12 @@
 package com.example.e_RH.user.entity;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.hibernate.validator.constraints.Length;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.e_RH.departement.entity.Departement;
 import com.example.e_RH.role.entity.Role;
@@ -28,7 +34,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,4 +64,27 @@ public class User {
     @ManyToOne(optional = true)
     @JoinColumn(nullable = true)
     private Departement departement;
+
+    // --- UserDetails ---
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if (this.role == null) return List.of();
+        return List.of(new SimpleGrantedAuthority(this.role.getRoleName().name()));
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return Boolean.TRUE.equals(this.isActive);
+    }
+
+    // Les 3 autres — true par défaut sauf besoin métier
+    @Override public boolean isAccountNonExpired() { return true; }
+    @Override public boolean isAccountNonLocked() { return true; }
+    @Override public boolean isCredentialsNonExpired() { return true; }
 }

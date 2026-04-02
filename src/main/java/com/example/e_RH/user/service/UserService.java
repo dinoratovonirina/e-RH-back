@@ -20,6 +20,6 @@ public class UserService {
     }
 
     public Optional<User> getUserByEmail(String email) {
-        return this.userRepository.findByEmail(email);
+        return this.userRepository.findByEmailAndIsActiveTrue(email);
     }
 }

@@ -8,25 +8,21 @@ import com.example.e_RH.auth.dto.AuthResponse;
 import com.example.e_RH.auth.dto.LoginRequest;
 import com.example.e_RH.config.security.JwtUtils;
 import com.example.e_RH.user.entity.User;
-import com.example.e_RH.user.service.UserService;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-        private final UserService userService;
         private final JwtUtils jwtUtils;
         private final AuthenticationManager authenticationManager;
 
         public AuthResponse login(LoginRequest request) {
-                authenticationManager.authenticate(
+                var authentication = authenticationManager.authenticate(
                                 new UsernamePasswordAuthenticationToken(
                                                 request.email(), request.password()));
 
-                User user = userService.getUserByEmail(request.email())
-                                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+                User user = (User) authentication.getPrincipal();
 
                 String token = jwtUtils.generateToken(user.getEmail());
 

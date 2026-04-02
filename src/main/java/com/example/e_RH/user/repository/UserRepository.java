@@ -8,4 +8,5 @@ import com.example.e_RH.user.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String userEmail);
+    Optional<User> findByEmailAndIsActiveTrue(String userEmail);
 }
