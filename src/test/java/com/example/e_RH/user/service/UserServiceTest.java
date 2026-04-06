@@ -34,7 +34,7 @@ public class UserServiceTest {
                 new Role((long) 1, RoleTypeEnum.ADMIN), new Departement());
 
         // Act
-        when(userRepository.findByEmail("rakoto@yahoo.fr")).thenReturn(Optional.of(userMock));
+        when(userRepository.findByEmailAndIsActiveTrue("rakoto@yahoo.fr")).thenReturn(Optional.of(userMock));
 
         Optional<User> user = userService.getUserByEmail("rakoto@yahoo.fr");
 

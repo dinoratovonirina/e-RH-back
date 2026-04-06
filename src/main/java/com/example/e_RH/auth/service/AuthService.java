@@ -18,7 +18,7 @@ public class AuthService {
         private final IAuthenticationContext iAuthenticationContext;
 
         public AuthResponse login(LoginRequest request) {
-                Authentication authentication = (Authentication) iAuthenticationContext.authenticate(
+                Authentication authentication = iAuthenticationContext.authenticate(
                                 request);
 
                 User user = (User) authentication.getPrincipal();
