@@ -1,11 +1,11 @@
 package com.example.e_RH.auth.service;
 
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.example.e_RH.auth.dto.AuthResponse;
 import com.example.e_RH.auth.dto.LoginRequest;
+import com.example.e_RH.auth.service.impl.IAuthenticationContext;
 import com.example.e_RH.config.security.JwtUtils;
 import com.example.e_RH.user.entity.User;
 
@@ -15,12 +15,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AuthService {
         private final JwtUtils jwtUtils;
-        private final AuthenticationManager authenticationManager;
+        private final IAuthenticationContext iAuthenticationContext;
 
         public AuthResponse login(LoginRequest request) {
-                var authentication = authenticationManager.authenticate(
-                                new UsernamePasswordAuthenticationToken(
-                                                request.email(), request.password()));
+                Authentication authentication = (Authentication) iAuthenticationContext.authenticate(
+                                request);
 
                 User user = (User) authentication.getPrincipal();
 

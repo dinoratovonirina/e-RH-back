@@ -65,8 +65,6 @@ public class User implements UserDetails {
     @JoinColumn(nullable = true)
     private Departement departement;
 
-    // --- UserDetails ---
-
     @Override
     public String getUsername() {
         return this.email;
@@ -83,7 +81,6 @@ public class User implements UserDetails {
         return Boolean.TRUE.equals(this.isActive);
     }
 
-    // Les 3 autres — true par défaut sauf besoin métier
     @Override public boolean isAccountNonExpired() { return true; }
     @Override public boolean isAccountNonLocked() { return true; }
     @Override public boolean isCredentialsNonExpired() { return true; }
