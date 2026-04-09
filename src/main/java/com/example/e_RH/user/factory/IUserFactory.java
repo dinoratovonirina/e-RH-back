@@ -1,4 +1,4 @@
-package com.example.e_RH.auth.factory;
+package com.example.e_RH.user.factory;
 
 import com.example.e_RH.auth.dto.RegisterRequest;
 import com.example.e_RH.departement.entity.Departement;

@@ -12,13 +12,13 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.example.e_RH.auth.dto.RegisterRequest;
-import com.example.e_RH.auth.factory.IUserFactory;
 import com.example.e_RH.departement.entity.Departement;
 import com.example.e_RH.departement.service.DepartementService;
 import com.example.e_RH.role.entity.Role;
 import com.example.e_RH.role.enums.RoleTypeEnum;
 import com.example.e_RH.role.service.RoleService;
 import com.example.e_RH.user.entity.User;
+import com.example.e_RH.user.factory.IUserFactory;
 import com.example.e_RH.user.repository.UserRepository;
 
 @ExtendWith(MockitoExtension.class)

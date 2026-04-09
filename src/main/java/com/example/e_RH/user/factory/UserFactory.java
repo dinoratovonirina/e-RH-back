@@ -1,4 +1,4 @@
-package com.example.e_RH.auth.factory;
+package com.example.e_RH.user.factory;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ public class UserFactory implements IUserFactory {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public User create(RegisterRequest  request, Role role, Departement departement) {
+    public User create(RegisterRequest request, Role role, Departement departement) {
         return User.builder()
                 .email(request.email())
                 .firstName(request.firstName())
